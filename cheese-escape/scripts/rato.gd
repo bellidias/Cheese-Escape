@@ -21,3 +21,5 @@ func _physics_process(_delta: float) -> void:
 	
 	if velocity.x < 0.0: $"Animação".flip_h = true
 	else: $"Animação".flip_h = false
+	
+	#sinais de conexão com vitoria e derrota
