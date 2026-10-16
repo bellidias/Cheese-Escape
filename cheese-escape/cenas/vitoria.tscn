@@ -40,3 +40,6 @@ offset_bottom = 173.0
 theme_override_colors/font_color = Color(0.18359044, 0.18359044, 0.18359044, 1)
 theme_override_font_sizes/font_size = 45
 text = "Você venceu!!"
+
+[connection signal="pressed" from="Reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="Sair" to="." method="_on_sair_pressed"]

@@ -1,25 +1,11 @@
 extends CharacterBody2D
 
-const SPEED = 400.0
-func _physics_process(_delta: float) -> void:
-	velocity = Vector2.ZERO
-	
-	
-	if Input.is_action_pressed('ui_left'):
-		velocity.x = -1 * SPEED
-	if Input.is_action_pressed('ui_right'):
-		velocity.x = 1 * SPEED
-	if Input.is_action_pressed('ui_up'):
-		velocity.y = -1 * SPEED
-	if Input.is_action_pressed('ui_down'):
-		velocity.y = 1 * SPEED
-	move_and_slide()
-	
-	if velocity == Vector2.ZERO: $"Animação".play("primeira")
-	else: $"Animação".play("segunda")
+@export var velocidade: float = 150.0
 
+func _physics_process(_delta):
+	# movimento com as setas
+	var dir_x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	var dir_y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	
-	if velocity.x < 0.0: $"Animação".flip_h = true
-	else: $"Animação".flip_h = false
-	
-	#sinais de conexão com vitoria e derrota
+	velocity = Vector2(dir_x, dir_y).normalized() * velocidade
+	move_and_slide()

@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://lb8wfn64kptn"]
 
 [ext_resource type="Texture2D" uid="uid://ctknedbrx1r55" path="res://imagens/Image.png" id="1_k46e6"]
+[ext_resource type="Script" uid="uid://bkefisk0n2fkw" path="res://scripts/jogo.gd" id="1_srya6"]
 [ext_resource type="Texture2D" uid="uid://ngqvh0e60y78" path="res://imagens/Captura_de_tela_2026-10-06_163419-removebg-preview.png" id="2_1frua"]
 [ext_resource type="Script" uid="uid://bvcge1j7kd38h" path="res://scripts/rato.gd" id="2_bkotw"]
 [ext_resource type="Texture2D" uid="uid://cdq7faui04d06" path="res://imagens/Captura_de_tela_2026-10-06_080011-removebg-preview (1).png" id="3_bkotw"]
+[ext_resource type="PackedScene" uid="uid://dgqcb4rdbf0x3" path="res://cenas/gato.tscn" id="5_dmxwg"]
+[ext_resource type="PackedScene" uid="uid://b84xp83740w88" path="res://cenas/ratoeira.tscn" id="7_v6mw0"]
+[ext_resource type="PackedScene" uid="uid://dckhnr6on55m7" path="res://cenas/migalha.tscn" id="8_c77ad"]
+[ext_resource type="PackedScene" uid="uid://cowbwibbmiwf8" path="res://cenas/queijo.tscn" id="9_s5cfb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bt0w"]
 size = Vector2(6.6635723, 157.63095)
@@ -141,10 +146,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v6mw0"]
-radius = 14.244652
-height = 42.078476
+radius = 15.028023
+height = 38.071
 
 [node name="Jogo" type="Node2D" unique_id=1518750316]
+script = ExtResource("1_srya6")
 
 [node name="Fundo" type="Sprite2D" parent="." unique_id=2046756168]
 position = Vector2(576.25, 321)
@@ -358,13 +364,13 @@ shape = SubResource("RectangleShape2D_bkotw")
 script = ExtResource("2_bkotw")
 
 [node name="Animação" type="AnimatedSprite2D" parent="Rato" unique_id=872814534]
-position = Vector2(52.312508, 28.374994)
-scale = Vector2(0.06713835, 0.080414034)
+position = Vector2(54.69061, 29.499998)
+scale = Vector2(0.061155707, 0.07324841)
 sprite_frames = SubResource("SpriteFrames_srya6")
 animation = &"primeira"
 
 [node name="Colisão" type="CollisionShape2D" parent="Rato" unique_id=2146932855]
-position = Vector2(62, 31)
+position = Vector2(63.000008, 32)
 rotation = -1.5707964
 skew = -0.061086524
 shape = SubResource("CapsuleShape2D_v6mw0")
@@ -381,3 +387,35 @@ limit_smoothed = true
 [node name="Area2D" type="Area2D" parent="Rato" unique_id=1219460708]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rato/Area2D" unique_id=1913363334]
+
+[node name="Gato" parent="." unique_id=82932758 instance=ExtResource("5_dmxwg")]
+position = Vector2(9, -18)
+
+[node name="Ratoeira" parent="." unique_id=1961865985 instance=ExtResource("7_v6mw0")]
+position = Vector2(536, 173)
+
+[node name="Ratoeira2" parent="." unique_id=726538845 instance=ExtResource("7_v6mw0")]
+position = Vector2(119, 295)
+
+[node name="Ratoeira3" parent="." unique_id=57581320 instance=ExtResource("7_v6mw0")]
+position = Vector2(745, 552)
+
+[node name="Migalha" parent="." unique_id=1847417925 instance=ExtResource("8_c77ad")]
+position = Vector2(859, 246)
+
+[node name="Migalha2" parent="." unique_id=51598733 instance=ExtResource("8_c77ad")]
+position = Vector2(1015, 351)
+
+[node name="Migalha3" parent="." unique_id=1559203587 instance=ExtResource("8_c77ad")]
+position = Vector2(527, 239)
+
+[node name="Migalha4" parent="." unique_id=732582322 instance=ExtResource("8_c77ad")]
+position = Vector2(855, 457)
+
+[node name="Migalha5" parent="." unique_id=1457078663 instance=ExtResource("8_c77ad")]
+position = Vector2(648, 377)
+
+[node name="Queijo" parent="." unique_id=2015550826 instance=ExtResource("9_s5cfb")]
+position = Vector2(1122, 627)
+
+[connection signal="mouse_entered" from="Rato" to="Rato" method="_on_mouse_entered"]

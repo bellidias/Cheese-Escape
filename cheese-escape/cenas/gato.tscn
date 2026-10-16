@@ -27,19 +27,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqgui"]
-size = Vector2(196, 141)
+size = Vector2(69, 50)
 
 [node name="Gato" type="CharacterBody2D" unique_id=82932758]
 script = ExtResource("1_2wdac")
 
 [node name="Animacao" type="AnimatedSprite2D" parent="." unique_id=215107296]
-position = Vector2(-1, 1.4305115e-06)
-scale = Vector2(0.47806144, 0.48692816)
+position = Vector2(-9.536743e-07, 1.0000014)
+scale = Vector2(0.17446032, 0.17769608)
 sprite_frames = SubResource("SpriteFrames_5w3ip")
 animation = &"animacao1"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=97946646]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1051524716]
-position = Vector2(-3, 0.5)
+position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_mqgui")
